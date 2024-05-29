@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    {% load static %}
+<!--    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>-->
+</head>
+<body>
+<form method="POST" class="post-form" action="/update/{{order.oid}}">
+        {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Update Details</h3>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">First Name:</label>
+    <div class="col-sm-4">
+        <input type="text" name="fname" id="fid_ename" required maxlength="100" value="{{ order.fname }}" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Last Name:</label>
+    <div class="col-sm-4">
+        <input type="text" name="lname" id="lid_ename" required maxlength="100" value="{{ order.lname }}" />
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Email:</label>
+    <div class="col-sm-4">
+        <input type="email" name="email" id="id_email" required maxlength="254" value="{{ order.email }}" />
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Price:</label>
+    <div class="col-sm-4">
+        <input type="text" name="price" id="id_price" required maxlength="100" value="{{ order.price }}" />
+    </div>
+  </div>
+   <div class="form-group row">
+    <label class="col-sm-2 col-form-label"> Address:</label>
+    <div class="col-sm-4">
+        <input type="text" name="addr" id="id_addr" required maxlength="100" value="{{ order.addr }}" />
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-success">Update</button>
+    </div>
+  </div>
+    </div>
+</form>
+</body>
+</html>

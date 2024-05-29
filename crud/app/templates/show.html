@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Records</title>
+     {% load static %}
+<!--    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>-->
+    <style>
+     .tbl {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tbl, .tbl th, .tbl td {
+            border: 1px solid black;
+            color : black;
+        }
+
+        .tbl th, .tbl td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        .thead-dark {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .tbl th {
+            background-color: #f2f2f2;
+        }
+
+        .tbl tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .actions a {
+            margin-right: 10px;
+        }
+
+        .actions .glyphicon-pencil {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+<table class="tbl">
+    <thead class="thead-dark">
+    <tr>
+        <th>Order ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Price</th>
+        <th>Address</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for order in orders %}
+    <tr>
+        <td>{{ order.oid }}</td>
+        <td>{{ order.fname }} {{ order.lname }}</td>
+        <td>{{ order.email }}</td>
+        <td>{{ order.price }}</td>
+        <td>{{ order.addr }}</td>
+        <td>
+            <a href="/edit/{{ order.oid }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+            <a href="/delete/{{ order.oid }}">Delete</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="/createView" class="btn btn-primary">Add New Record</a></center>
+</body>
+</html>
